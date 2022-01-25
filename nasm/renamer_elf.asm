@@ -2,7 +2,7 @@
 
 %define SYS_exit 1
 %define SYS_write 4
-%define FD_sysout 1
+%define FD_stdout 1
 
 
 
@@ -13,7 +13,7 @@ _start:
 	; write the name 'Zara Ali'
 	mov edx, 9
 	mov ecx, name
-	mov ebx, FD_sysout
+	mov ebx, FD_stdout
 	mov eax, SYS_write
 	int 0x80
 
@@ -23,7 +23,7 @@ _start:
 	; write the name 'Nuha Ali'
 	mov edx, name_len
 	mov ecx, name
-	mov ebx, FD_sysout
+	mov ebx, FD_stdout
 	mov eax, SYS_write
 	int 0x80
 
