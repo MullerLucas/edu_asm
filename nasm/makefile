@@ -1,10 +1,9 @@
 target_dir := targets
 
-all: hello_elf repeat_elf clean
+all: hello_elf repeat_elf renamer_elf clean
 
 clean:
 	rm -f *.o
-
 
 
 
@@ -21,3 +20,12 @@ repeat_elf: repeat_elf.o
 
 repeat_elf.o: repeat_elf.asm
 	nasm -f elf repeat_elf.asm
+
+
+
+renamer_elf: renamer_elf.o
+	ld -m elf_i386 -s -o $(target_dir)/renamer_elf renamer_elf.o
+
+renamer_elf.o: renamer_elf.asm
+	nasm -f elf renamer_elf.asm
+

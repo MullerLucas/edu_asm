@@ -1,3 +1,7 @@
+; asmsyntax=nasm
+
+
+
 section .data
 	msg_1 db 'Please enter a number: '
 	msg_1_len equ $-msg_1

@@ -1,3 +1,4 @@
+; asmsyntax=nasm
 ; - [sys-calls] (https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit)
 
 %define STDOUT 1
@@ -33,8 +34,8 @@ _start:
 ; declares the data region where data elements are stored
 ; cannot be expanded after the elements are declared (remains static throughout the program)
 section .data
-	msg db 'Hello, world!', 0xa
-	len equ $ - msg			; length of msg
+	msg db 'Hello, world!', 0xa		; ASCII 10 -> LF -> Line Feed ~= new line
+	len equ $ - msg					; length of msg
 	s2 times 13 db '*'
 
 
