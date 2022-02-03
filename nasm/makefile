@@ -1,6 +1,6 @@
 target_dir := targets
 
-all: hello_elf repeat_elf renamer_elf starts_elf increment_elf adder_elf clean
+all: hello_elf repeat_elf renamer_elf starts_elf increment_elf adder_elf even_odder_elf clean
 
 clean:
 	rm -f *.o
@@ -51,3 +51,10 @@ adder_elf: adder_elf.o
 
 adder_elf.o: adder_elf.asm
 	nasm -f elf adder_elf.asm
+
+
+even_odder_elf: even_odder_elf.o
+	ld -m elf_i386 -s -o $(target_dir)/even_odder_elf even_odder_elf.o
+
+even_odder_elf.o: even_odder_elf.asm
+	nasm -f elf even_odder_elf.asm
